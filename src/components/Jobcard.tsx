@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "flowbite-react";
+import { star, bookmark } from "../icnos/icons";
 
 export default function Jobcard() {
   return (
@@ -31,9 +32,9 @@ export default function Jobcard() {
                 </div>
               </div>
               <div className="min-w-0 flex  border md:order-last order-first">
-                <div className="min-w-0 ">here will be starts icons</div>
+                <div className="min-w-0 ">here will be starts icons {star}</div>
                 <div className="inline-flex items-center ">
-                  here will be bookmark and post date
+                  here will be bookmark and post date {bookmark}
                 </div>
               </div>
             </div>
