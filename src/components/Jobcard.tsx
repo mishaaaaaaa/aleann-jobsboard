@@ -31,10 +31,14 @@ export default function Jobcard() {
                   </p>
                 </div>
               </div>
-              <div className="min-w-0 flex  border md:order-last order-first">
-                <div className="min-w-0 ">here will be starts icons {star}</div>
-                <div className="inline-flex items-center ">
-                  here will be bookmark and post date {bookmark}
+              <div className="min-w-0 flex justify-between lg:w-2/5 w-full border md:order-last order-first">
+                <div className="min-w-0 inline-flex items-center flex-1 border ">
+                  {star}
+                  {star}
+                </div>
+                <div className="inline-flex items-end flex-1 flex-end flex-col justify-between">
+                  <div className="hidden  md:block"> {bookmark}</div>
+                  <div className="">bookmark date</div>
                 </div>
               </div>
             </div>
