@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "flowbite-react";
 import { star, bookmark } from "../icnos/icons";
 
-export default function Jobcard() {
+export default function JobCard() {
   return (
     <Card href="#">
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -31,8 +31,8 @@ export default function Jobcard() {
                   </p>
                 </div>
               </div>
-              <div className="min-w-0 flex justify-between lg:w-2/5 w-full border md:order-last order-first">
-                <div className="min-w-0 inline-flex items-center flex-1 border ">
+              <div className="min-w-0 flex justify-between lg:w-2/5 w-full  md:order-last order-first">
+                <div className="min-w-0 inline-flex items-center flex-1  ">
                   {star}
                   {star}
                 </div>
