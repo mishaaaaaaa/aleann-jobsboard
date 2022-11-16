@@ -2,10 +2,11 @@ import React from "react";
 import { bookmark, share } from "../icnos/icons";
 import Map from "./Map";
 import Button from "./ui-kit/Button";
+import KeyWordBlock from "./ui-kit/KeyWordBlock";
 
 export default function JobDetails() {
   return (
-    <div className="container mx-auto max-w-[1240px] h-screen flex flex-col md:flex-row flex-stretch  my-5 p-3 ">
+    <div className="container mx-auto max-w-[1240px] h-screen flex flex-col md:flex-row  my-5 p-3 ">
       <div className="flex flex-col   w-full md:w-3/5 space-y-5">
         <div className="job-title  justify-between items-center md:border-b-2 border-0 flex flex-col md:flex-row">
           <div className="flex grow items-center md:w-1/2 w-full">
@@ -26,7 +27,7 @@ export default function JobDetails() {
             Fachärztin für Arbeitsmedizin (m/w/d)
           </div>
           <div className="salary md:w-1/2 order-3 md:order-2 flex flex-col items-end  grow">
-            <p className="font-semibold">€ 54 000—60 000</p>
+            <p className="font-semibold">€ 54 000 - 60 000</p>
             <p className="order-1 md:order-2">brutto per year</p>
             {/* toDo: align brutto per year with salary (make them start from one point) */}
           </div>
@@ -34,7 +35,7 @@ export default function JobDetails() {
             Posted 2 days ago
           </div>
         </div>
-        <div className="main_job_text space-y-5">
+        <div className="main_job_text space-y-5 flex flex-col">
           <div className="description text-base">
             At WellStar, we all share common goals. That`s what makes us so
             successful – and such an integral part of our communities. We want
@@ -69,7 +70,7 @@ export default function JobDetails() {
               open heart programs at Kennestone Regional Medical Center and
               Atlanta Medical Center, Wellstar cardiac surgeons perform over
               1200 cardiac procedures per year. The cardiac service line is the
-              only center in Georgia with the Joint Commission’s Comprehensive
+              only center in Georgia with the Joint Commission`s Comprehensive
               Cardiac Center certification.
             </p>
           </div>
@@ -100,6 +101,25 @@ export default function JobDetails() {
               </li>
             </ul>
           </div>
+          {/* refactor btn in component so i can add proprty to hide/unhide btn on small screens */}
+          <button
+            type="button"
+            className="w-32 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 self-center md:self-start"
+          >
+            Apply now
+          </button>
+        </div>
+        <div className="aditional_info grow">
+          <p className="text-xl font-semibold">Additional info</p>
+          <div className="employment_type">
+            <p>Employment type</p>
+            <div className="flex">
+              <KeyWordBlock />
+              <KeyWordBlock />
+              <KeyWordBlock />
+            </div>
+          </div>
+          <div className="benefits"></div>
         </div>
       </div>
       <div className="flex flex-col  w-full md:w-2/5">
