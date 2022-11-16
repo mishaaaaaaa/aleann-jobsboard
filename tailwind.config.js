@@ -9,6 +9,14 @@ module.exports = {
     container: {
       center: true,
     },
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      square: "square",
+      roman: "upper-roman",
+      red: "red",
+    },
   },
   plugins: [require("flowbite/plugin")],
 };
