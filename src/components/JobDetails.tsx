@@ -19,7 +19,7 @@ export default function JobDetails() {
             <div className="">Share</div>
           </div>
         </div>
-        <Button content="Apply now" />
+        <Button content="Apply now" className="btn" hidden={true} />
         <div className="flex flex-wrap w-full ">
           <div className="job-title md:w-1/2 order-1 font-semibold">
             Arbeitsmediziner/-in / Betriebsmediziner/-in (m/w/d) oder einen
@@ -102,21 +102,20 @@ export default function JobDetails() {
             </ul>
           </div>
           {/* refactor btn in component so i can add proprty to hide/unhide btn on small screens */}
-          <button
-            type="button"
-            className="w-32 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 self-center md:self-start"
-          >
-            Apply now
-          </button>
+          <Button
+            content="Apply now"
+            hidden={false}
+            className="self-center md:self-start"
+          />
         </div>
         <div className="aditional_info grow">
           <p className="text-xl font-semibold">Additional info</p>
           <div className="employment_type">
             <p>Employment type</p>
-            <div className="flex">
-              <KeyWordBlock />
-              <KeyWordBlock />
-              <KeyWordBlock />
+            <div className="flex border">
+              <KeyWordBlock content="Full time" />
+              <KeyWordBlock content="Part time" />
+              <KeyWordBlock content="Temporary" />
             </div>
           </div>
           <div className="benefits"></div>
