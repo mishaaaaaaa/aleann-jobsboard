@@ -3,7 +3,9 @@ import { bookmark, share } from "../icnos/icons";
 import Map from "./Map";
 import Button from "./ui-kit/Button";
 import KeyWordBlock from "./ui-kit/KeyWordBlock";
-
+import group_of_people from "../images/group_of_people.jpg";
+import persons from "../images/persons.jpg";
+import building from "../images/building.jpg";
 export default function JobDetails() {
   return (
     <div className="container mx-auto max-w-[1240px] h-screen flex flex-col md:flex-row  my-5 p-3 ">
@@ -109,17 +111,64 @@ export default function JobDetails() {
           />
         </div>
         <div className="aditional_info grow">
-          <p className="text-xl font-semibold">Additional info</p>
-          <div className="employment_type">
-            <p>Employment type</p>
-            <div className="flex border">
-              <KeyWordBlock content="Full time" />
-              <KeyWordBlock content="Part time" />
-              <KeyWordBlock content="Temporary" />
+          <p className="text-xl font-semibold mb-2">Additional info</p>
+          <div className="employment_type border-t-2 space-y-2 pt-2">
+            <p className="text-lg">Employment type</p>
+            <div className="flex w-full space-x-2 ">
+              <KeyWordBlock
+                content="Full time"
+                className="flex border-blue-700 bg-blue-100 text-blue-700"
+              />
+              <KeyWordBlock
+                content="Part time"
+                className="flex border-blue-700 bg-blue-100 text-blue-700"
+              />
+              <KeyWordBlock
+                content="Temporary"
+                className="flex border-blue-700 bg-blue-100 text-blue-700"
+              />
+            </div>
+            <p className="text-lg">Benefits</p>
+            <div className="flex w-full space-x-2 ">
+              <KeyWordBlock
+                content="Flexible shedule"
+                className="flex border-yellow-300 bg-yellow-100 text-yellow-500"
+              />
+              <KeyWordBlock
+                content="Relocation assistance"
+                className="flex border-yellow-300 bg-yellow-100 text-yellow-500"
+              />
             </div>
           </div>
           <div className="benefits"></div>
         </div>
+        <div className="attached_images grow">
+          <p className="text-xl font-semibold mb-2">Attached images</p>
+          <div className="images_group border-t-2 space-y-2 pt-2 flex items-center">
+            <div className="img w-1/3">
+              <img
+                src={group_of_people}
+                className="w-full max-w-xl h-auto rounded-lg"
+                alt="image description"
+              />
+            </div>
+            <div className="img w-1/3">
+              <img
+                src={persons}
+                className="w-full max-w-xl h-auto rounded-lg"
+                alt="image description"
+              />
+            </div>
+            <div className="img w-1/3">
+              <img
+                src={building}
+                className="w-full max-w-xl h-auto rounded-lg"
+                alt="image description"
+              />
+            </div>
+          </div>
+        </div>
+        <p>here will be back to the start page button</p>
       </div>
       <div className="flex flex-col  w-full md:w-2/5">
         <Map />

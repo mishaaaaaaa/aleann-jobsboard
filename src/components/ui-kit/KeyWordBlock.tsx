@@ -1,9 +1,15 @@
 import React from "react";
+import clsx from "clsx";
 
-export default function KeyWordBlock() {
-  return (
-    <div className="text-blue-700 bg-blue-100 border border-blue-700  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 flex-1">
-      KeyWordBlock
-    </div>
+type KeyWordBlockProps = {
+  content: string;
+  className: string;
+};
+export default function KeyWordBlock(props: KeyWordBlockProps) {
+  const { content, className } = props;
+  const classes = clsx(
+    "border font-medium rounded-lg text-sm space-x-1 py-2.5 text-center mb-2 flex-1  justify-center",
+    className
   );
+  return <div className={classes}>{content}</div>;
 }
