@@ -1,10 +1,14 @@
 import React from "react";
-import JobcardList from "./JobcardList";
+import JobCard from "./JobCard";
 
 export default function JobBoard() {
   return (
-    <div className="container mx-auto max-w-[1240px] w-full h-screen flex-stretch justify-content-center border my-5">
-      <JobcardList />
+    <div className="container w-full border my-5 overflow-hidden space-y-3">
+      <JobCard />
+      <JobCard />
+      <JobCard />
+      <JobCard />
+      <JobCard />
     </div>
   );
 }
