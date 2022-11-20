@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "flowbite-react";
-import { star, bookmark } from "../icnos/icons";
+import { star, bookmark } from "../icons/icons";
 
 export default function JobCard() {
   return (
