@@ -2,7 +2,28 @@ import React from "react";
 import { Card } from "flowbite-react";
 import { star, bookmark } from "../icons/icons";
 
-export default function JobCard() {
+type CardProps = {
+  card: {
+    address: string;
+    benefits: string[];
+    createdAt: string;
+    description: string;
+    email: string;
+    employment_type: string[];
+    id: string;
+    location: { lat: number; long: number };
+    name: string;
+    phone: string;
+    pictures: string[];
+    salary: string;
+    title: string;
+    updatedAt: string;
+  };
+};
+
+export default function JobCard(props: CardProps) {
+  const { card } = props;
+  console.log(props);
   return (
     <Card href="#">
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -11,19 +32,17 @@ export default function JobCard() {
             <div className="shrink-0">
               <img
                 className="h-16 w-16 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+                src={card.pictures[0]}
                 alt="Neil "
               />
             </div>
             <div className="min-w-0 flex  flex-col md:flex-row gap-y-1">
               <div className="flex flex-col ">
                 <p className=" text-sm font-medium text-gray-900 dark:text-white">
-                  Arbeitsmediziner/-in / Betriebsmediziner/-in (m/w/d) oder
-                  einen Arzt/eine Ärztin (m/w/d) für die Weiterbildung zum
-                  Facharzt/ zur Fachärztin für Arbeitsmedizin (m/w/d)
+                  {card.title}
                 </p>
                 <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-                  Department name • Allgemeines Krankenhaus der Stadt Wien - AKH
+                  Department name • {card.address}
                 </p>
                 <div className="">
                   <p className="truncate text-sm text-gray-500 dark:text-gray-400">
