@@ -4,6 +4,7 @@ import JobDetails from "./components/JobDetails";
 import { Pagination } from "flowbite-react";
 import JobBoard from "./components/JobBoard";
 import useFetch from "./hooks/useFetch";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const { get } = useFetch(
@@ -21,13 +22,18 @@ function App() {
   }, []);
   return (
     <div className="container mx-auto max-w-[1240px] max-h-screen  flex flex-col justify-between border ">
-      <JobBoard data={serverData} />
-      <Pagination
+      <Router>
+        <Routes>
+          <Route path="/" element={<JobBoard data={serverData} />} />
+          <Route path="/jobdetails/:id" element={<JobDetails />} />
+        </Routes>
+      </Router>
+      {/* <Pagination
         className="self-center"
         currentPage={1}
         totalPages={2}
         onPageChange={onPageChange}
-      />
+      /> */}
     </div>
   );
 }

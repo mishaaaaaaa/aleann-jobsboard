@@ -7,6 +7,10 @@ import BackButton from "./ui-kit/BackButton";
 import group_of_people from "../images/group_of_people.jpg";
 import persons from "../images/persons.jpg";
 import building from "../images/building.jpg";
+import { Link } from "react-router-dom";
+
+//try to apply useNavigate (but need to refactor)
+
 export default function JobDetails() {
   return (
     <>
@@ -172,9 +176,9 @@ export default function JobDetails() {
             </div>
           </div>
           <div className="back-bt mr-10 relative ">
-            <a href="" className="absolute -left-12 flex">
+            <Link to="/" className="absolute -left-12 flex">
               <BackButton content="RETURN TO JOB BOARD" hidden={true} />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col   w-full md:w-2/5">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import JobCard from "./JobCard";
+import { Pagination } from "flowbite-react";
 
 type JobListProps = {
   data: {
@@ -24,16 +25,22 @@ export default function JobBoard(props: JobListProps) {
   const { data } = props;
   console.log(data);
   const [jobCardData, setJobCardData] = useState([]);
+
+  const onPageChange = () => {
+    console.log("Pagination changed");
+  };
+
   return (
-    <div className="container w-full border my-5 space-y-3">
-      {/* <JobCard cardData={jobCardData}/>
-      <JobCard />
-      <JobCard />
-      <JobCard />
-      <JobCard /> */}
+    <div className="container w-full border my-5 space-y-3 flex flex-col ">
       {data.map((card) => (
-        <JobCard card={card} />
+        <JobCard card={card} key={card.id} />
       ))}
+      <Pagination
+        className="self-center"
+        currentPage={1}
+        totalPages={2}
+        onPageChange={onPageChange}
+      />
     </div>
   );
 }
