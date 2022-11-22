@@ -1,30 +1,10 @@
 import { useState } from "react";
 import JobCard from "../components/JobCard";
+import { FetchDataType } from "../types/FetchDataType";
 import { Pagination } from "flowbite-react";
 
-type JobListProps = {
-  data: {
-    address: string;
-    benefits: string[];
-    createdAt: string;
-    description: string;
-    email: string;
-    employment_type: string[];
-    id: string;
-    location: { lat: number; long: number };
-    name: string;
-    phone: string;
-    pictures: string[];
-    salary: string;
-    title: string;
-    updatedAt: string;
-  }[];
-};
-
-export default function JobBoard(props: JobListProps) {
+export default function JobBoard(props: FetchDataType) {
   const { data } = props;
-  console.log(data);
-  const [jobCardData, setJobCardData] = useState([]);
 
   const onPageChange = () => {
     console.log("Pagination changed");

@@ -2,29 +2,11 @@ import React from "react";
 import { Card } from "flowbite-react";
 import { star, bookmark } from "../icons/icons";
 import { Link } from "react-router-dom";
-
-type CardProps = {
-  card: {
-    address: string;
-    benefits: string[];
-    createdAt: string;
-    description: string;
-    email: string;
-    employment_type: string[];
-    id: string;
-    location: { lat: number; long: number };
-    name: string;
-    phone: string;
-    pictures: string[];
-    salary: string;
-    title: string;
-    updatedAt: string;
-  };
-  key: string;
-};
+import { CardProps } from "../types/CardPropsType";
 
 export default function JobCard(props: CardProps) {
   const { card } = props;
+  const rating = new Array(Math.floor(Math.random() * 5) + 1).fill(1);
 
   return (
     <Card>
@@ -55,8 +37,7 @@ export default function JobCard(props: CardProps) {
                 </div>
                 <div className="min-w-0 flex justify-between lg:w-2/5 w-full  md:order-last order-first">
                   <div className="min-w-0 inline-flex items-center flex-1  ">
-                    {star}
-                    {star}
+                    {rating.map((el) => star)}
                   </div>
                   <div className="inline-flex items-end flex-1 flex-end flex-col justify-between">
                     <div className="hidden  md:block"> {bookmark}</div>
