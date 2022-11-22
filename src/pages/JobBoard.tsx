@@ -1,5 +1,5 @@
 import { useState } from "react";
-import JobCard from "../components/JobCard";
+import JobCard from "../components/Jobcard";
 import { FetchDataType } from "../types/FetchDataType";
 import { Pagination } from "flowbite-react";
 
