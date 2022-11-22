@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import { FetchDataType } from "../types/FetchDataType";
 import Map from "../components/Map";
 import Button from "../components/ui-kit/Button";
@@ -10,16 +11,6 @@ import JobDetailsHeader from "../components/JobDetailsContent/JobDetailsHeader";
 import JobDetailsHeaderInfo from "../components/JobDetailsContent/JobDetailsHeaderInfo";
 import JobMainInfo from "../components/JobDetailsContent/JobMainInfo";
 
-//text extraction from "description"
-const textExtarct = (text: string) => {
-  let splited = text?.split("\n");
-  let textOnly = splited?.filter((el: any) => el.length >= 4); //
-  let jobDescription = textOnly[0];
-  let jobResp = textOnly[2];
-  let jobBenefits = textOnly[4];
-  return [jobDescription, jobResp, jobBenefits];
-};
-
 export default function JobDetails(props: FetchDataType) {
   const { id } = useParams();
 
@@ -27,11 +18,21 @@ export default function JobDetails(props: FetchDataType) {
   const { data } = props;
 
   // finding proper job from passed list of jobs
-  const job = data.find((el: any) => el.id === id);
+  const job = useMemo(() => {
+    return data.find((el: any) => el.id === id);
+  }, [data, id]);
+
+  //text extraction from "description"
+  const textExtarct = useCallback((text: string) => {
+    let splited = text?.split("\n");
+    let textOnly = splited?.filter((el: any) => el.length >= 4); //
+    let jobDescription = textOnly[0];
+    let jobResp = textOnly[2];
+    let jobBenefits = textOnly[4];
+    return [jobDescription, jobResp, jobBenefits];
+  }, []);
 
   // description, responsibility and benefits descriptions grouped as one value (access by "description" key), so i apply textExtarct function to get the text separated
-
-  console.log(job);
 
   const descRespBenefits: any = job?.description;
   let jobDescription, jobResp, jobBenefits;
