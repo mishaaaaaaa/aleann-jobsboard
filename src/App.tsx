@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import JobDetails from "./components/JobDetails";
+import JobDetails from "./pages/JobDetails";
 import { Pagination } from "flowbite-react";
-import JobBoard from "./components/JobBoard";
+import JobBoard from "./pages/JobBoard";
 import useFetch from "./hooks/useFetch";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const { get } = useFetch(
@@ -25,7 +25,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<JobBoard data={serverData} />} />
-          <Route path="/jobdetails/:id" element={<JobDetails />} />
+          <Route
+            path="/jobdetails/:id"
+            element={<JobDetails data={serverData} />}
+          />
         </Routes>
       </Router>
       {/* <Pagination

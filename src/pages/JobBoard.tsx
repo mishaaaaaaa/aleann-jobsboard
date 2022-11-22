@@ -1,5 +1,5 @@
 import { useState } from "react";
-import JobCard from "./JobCard";
+import JobCard from "../components/JobCard";
 import { Pagination } from "flowbite-react";
 
 type JobListProps = {
