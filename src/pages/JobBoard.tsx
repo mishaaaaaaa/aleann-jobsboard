@@ -1,25 +1,31 @@
 import JobCard from "../components/Jobcard";
 import { FetchDataType } from "../types/FetchDataType";
-import { Pagination } from "flowbite-react";
+import Loader from "../components/ui-kit/Loader";
+import Pagination from "../components/Pagination";
 
 export default function JobBoard(props: FetchDataType) {
-  const { data } = props;
-
-  const onPageChange = () => {
-    console.log("Pagination changed");
-  };
+  const { data, loading, jobsPerPage, totalJobs, paginate, currentPage } =
+    props;
 
   return (
-    <div className="container w-full border my-5 space-y-3 flex flex-col ">
-      {data.map((card) => (
-        <JobCard card={card} key={card.id} />
-      ))}
-      <Pagination
-        className="self-center"
-        currentPage={1}
-        totalPages={2}
-        onPageChange={onPageChange}
-      />
+    <div className="wrapper bg-slate-600 min-h-screen">
+      <div className="container mx-auto max-w-[1240px]  my-5 space-y-3 flex flex-col ">
+        {loading ? (
+          <Loader />
+        ) : (
+          data.map((card) => <JobCard card={card} key={card.id} />)
+        )}
+      </div>
+      <div className="pagination-wrapper flex justify-center">
+        {loading ? null : (
+          <Pagination
+            jobsPerPage={jobsPerPage}
+            totalJobs={totalJobs}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        )}
+      </div>
     </div>
   );
 }
