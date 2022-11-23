@@ -27,27 +27,25 @@ function App() {
 
   return (
     <div className="flex flex-col justify-between">
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <JobBoard
-                data={currentJobs}
-                loading={loading}
-                jobsPerPage={jobsPerPage}
-                totalJobs={serverData.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
-            }
-          />
-          <Route
-            path="/jobdetails/:id"
-            element={<JobDetails data={serverData} />}
-          />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <JobBoard
+              data={currentJobs}
+              loading={loading}
+              jobsPerPage={jobsPerPage}
+              totalJobs={serverData.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          }
+        />
+        <Route
+          path="/jobdetails/:id"
+          element={<JobDetails data={serverData} />}
+        />
+      </Routes>
     </div>
   );
 }
