@@ -1,5 +1,3 @@
-import React from "react";
-
 type JobDetailsHeaderInfoProps = {
   title?: string;
   salary?: string;
