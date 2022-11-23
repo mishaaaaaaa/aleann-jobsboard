@@ -13,7 +13,7 @@ function Benefits({ benefits }: BenefitsProps) {
         {benefits &&
           benefits.map((benefit: string, index) => {
             return (
-              <li className="text-neutral-400" key={index}>
+              <li className="text-neutral-400 ml-5 lg:ml-0" key={index}>
                 <div className="text-black">{benefit}</div>
               </li>
             );

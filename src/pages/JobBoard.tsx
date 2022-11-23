@@ -2,6 +2,7 @@ import JobCard from "../components/Jobcard";
 import { FetchDataType } from "../types/FetchDataType";
 import Loader from "../components/ui-kit/Loader";
 import Pagination from "../components/Pagination";
+import { v4 } from "uuid";
 
 export default function JobBoard(props: FetchDataType) {
   const { data, loading, jobsPerPage, totalJobs, paginate, currentPage } =
