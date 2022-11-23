@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/aleann-jobsboard/static/css/main.d963a642.css",
+    "main.js": "/aleann-jobsboard/static/js/main.075939ab.js",
+    "index.html": "/aleann-jobsboard/index.html",
+    "main.d963a642.css.map": "/aleann-jobsboard/static/css/main.d963a642.css.map",
+    "main.075939ab.js.map": "/aleann-jobsboard/static/js/main.075939ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d963a642.css",
+    "static/js/main.075939ab.js"
+  ]
+}
