@@ -3,7 +3,7 @@ import React from "react";
 type JobDetailsHeaderInfoProps = {
   title?: string;
   salary?: string;
-  postDate?: string;
+  postDate?: number;
 };
 
 function JobDetailsHeaderInfo({
@@ -19,7 +19,7 @@ function JobDetailsHeaderInfo({
         <p className="order-1 md:order-2">brutto per year</p>
       </div>
       <div className="date order-2 md:order-3 grow font-light text-slate-400">
-        Posted {postDate}
+        Posted {postDate} years ago
       </div>
     </div>
   );

@@ -4,19 +4,17 @@ import JobDetails from "./pages/JobDetails";
 import JobBoard from "./pages/JobBoard";
 import useFetch from "./hooks/useFetch";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { url } from "./urls/api";
+import { access_token } from "./urls/access_token";
 
 function App() {
-  const { get, loading } = useFetch(
-    "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?"
-  );
+  const { get, loading } = useFetch(url);
   const [serverData, setServerData] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsPerPage] = useState(5);
 
   useEffect(() => {
-    get("access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu").then(
-      (data: any) => setServerData(data)
-    );
+    get(access_token).then((data: any) => setServerData(data));
   }, []);
 
   // Get current posts

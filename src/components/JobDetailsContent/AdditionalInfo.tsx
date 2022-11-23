@@ -1,4 +1,3 @@
-import React from "react";
 import KeyWordBlock from "../ui-kit/KeyWordBlock";
 
 type AdditionalInfoProps = {
@@ -14,9 +13,10 @@ function AdditionalInfo({ employment_type, benefits }: AdditionalInfoProps) {
         <p className="text-lg">Employment type</p>
         <div className="flex w-full space-x-2 ">
           {employment_type &&
-            employment_type.map((et) => {
+            employment_type.map((et, index) => {
               return (
                 <KeyWordBlock
+                  key={index}
                   content={et}
                   className="flex border-blue-700 bg-blue-100 text-blue-700"
                 />

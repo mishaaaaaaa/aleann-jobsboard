@@ -10,19 +10,19 @@ import AdditionalInfo from "../components/JobDetailsContent/AdditionalInfo";
 import JobDetailsHeader from "../components/JobDetailsContent/JobDetailsHeader";
 import JobDetailsHeaderInfo from "../components/JobDetailsContent/JobDetailsHeaderInfo";
 import JobMainInfo from "../components/JobDetailsContent/JobMainInfo";
+import useExtractDate from "../hooks/useExtractDate";
 
 export default function JobDetails(props: FetchDataType) {
   const { id } = useParams();
 
-  // getting array of fetched data from server
   const { data } = props;
 
-  // finding proper job from passed list of jobs
   const job = useMemo(() => {
     return data.find((el: any) => el.id === id);
   }, [data, id]);
 
-  //text extraction from "description"
+  const postDate = useExtractDate(job?.createdAt);
+
   const textExtarct = useCallback((text: string) => {
     let splited = text?.split("\n");
     let textOnly = splited?.filter((el: any) => el.length >= 4); //
@@ -32,15 +32,12 @@ export default function JobDetails(props: FetchDataType) {
     return [jobDescription, jobResp, jobBenefits];
   }, []);
 
-  // description, responsibility and benefits descriptions grouped as one value (access by "description" key), so i apply textExtarct function to get the text separated
-
   const descRespBenefits: any = job?.description;
   let jobDescription, jobResp, jobBenefits;
   if (descRespBenefits?.length > 0) {
     [jobDescription, jobResp, jobBenefits] = textExtarct(descRespBenefits);
   }
 
-  //benefits are grouped in one paragraph, so here i separate them
   let benefits;
   if (jobBenefits) {
     benefits = jobBenefits.split(".").filter((b: string) => b.length > 0);
@@ -55,7 +52,7 @@ export default function JobDetails(props: FetchDataType) {
           <JobDetailsHeaderInfo
             title={job?.title}
             salary={job?.salary}
-            postDate={job?.updatedAt}
+            postDate={postDate}
           />
           <JobMainInfo
             description={jobDescription}
@@ -74,7 +71,7 @@ export default function JobDetails(props: FetchDataType) {
           </div>
         </div>
         <div className="flex flex-col   w-full md:w-2/5">
-          <Map />
+          <Map location={job?.location} />
         </div>
       </div>
     </>

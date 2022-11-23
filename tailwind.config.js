@@ -5,10 +5,15 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#e6e9f2",
+      },
+    },
     container: {
       center: true,
     },
+
     listStyleType: {
       none: "none",
       disc: "disc",

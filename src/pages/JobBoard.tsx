@@ -8,15 +8,17 @@ export default function JobBoard(props: FetchDataType) {
     props;
 
   return (
-    <div className="wrapper bg-slate-600 min-h-screen">
+    <div className="wrapper bg-primary min-h-screen">
       <div className="container mx-auto max-w-[1240px]  my-5 space-y-3 flex flex-col ">
         {loading ? (
           <Loader />
         ) : (
-          data.map((card) => <JobCard card={card} key={card.id} />)
+          data.map((card) => {
+            return <JobCard card={card} key={card.id} />;
+          })
         )}
       </div>
-      <div className="pagination-wrapper flex justify-center">
+      <div className="pagination-wrapper flex justify-center mb-3 ">
         {loading ? null : (
           <Pagination
             jobsPerPage={jobsPerPage}

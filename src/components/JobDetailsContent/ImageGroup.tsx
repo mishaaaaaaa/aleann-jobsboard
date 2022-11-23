@@ -10,13 +10,13 @@ function ImageGroup({ imgs }: ImageGroupType) {
       <p className="text-xl font-semibold mb-2">Attached images</p>
       <div className="images_group border-t-2 space-y-2 pt-2 flex items-center overflow-x-auto space-x-2">
         {imgs &&
-          imgs.map((img) => {
+          imgs.map((img, index) => {
             return (
-              <div className="img  object-contain">
+              <div className="img  object-contain" key={index}>
                 <img
                   src={img}
                   className="w-full max-w-xl h-auto rounded-lg"
-                  alt="image description"
+                  alt=""
                 />
               </div>
             );

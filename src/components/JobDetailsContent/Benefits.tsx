@@ -11,9 +11,9 @@ function Benefits({ benefits }: BenefitsProps) {
       <ul className="list-square">
         <p>Our physicians enjoy a wide range of benefits, including:</p>
         {benefits &&
-          benefits.map((benefit: string) => {
+          benefits.map((benefit: string, index) => {
             return (
-              <li className="text-neutral-400">
+              <li className="text-neutral-400" key={index}>
                 <div className="text-black">{benefit}</div>
               </li>
             );
