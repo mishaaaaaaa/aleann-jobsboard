@@ -8,5 +8,3 @@ In the project directory, you can run:
 
 ### `npm run build`
 
-Environment variables
-`REACT_APP_API_URL=`
